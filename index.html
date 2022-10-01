@@ -1,65 +1,160 @@
+<!-- 
+ALL CODE IS PURLEY ORIGINAL.
+
+YOU MAY NOT COPY, MODIFY, MERGE, PUBLISH, DISTIBUTE, SUBLICENCE, AND/OR SELL THE CODE. 
+
+This web app is a product of
+
+███████╗██████╗ ██╗ ██████╗ ██████╗ ██████╗ ███████╗
+██╔════╝██╔══██╗██║██╔════╝██╔═══██╗██╔══██╗██╔════╝
+█████╗  ██████╔╝██║██║     ██║   ██║██║  ██║█████╗  
+██╔══╝  ██╔═══╝ ██║██║     ██║   ██║██║  ██║██╔══╝  
+███████╗██║     ██║╚██████╗╚██████╔╝██████╔╝███████╗
+╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝
+
+All rights reserved.       
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://i.ibb.co/mXYy5Rk/Note-It-v25-0-0.png" />
-    <title>Hello World!</title>
-    <link rel="stylesheet" href="/style.css" />
-    <script src="/script.js" defer></script>
+    <meta name="description" content="A fun, strategy money machine game." />
+    <meta name="keywords" content="Cash In" />
+
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/995ab0f0-d9d6-4894-93e9-7b2656c648f6/Cash%20It%20Logo%20Green.png?v=1654228819066"
+    />
+
+    <title>Cash In</title>
+
+    <link rel="stylesheet" href="/style/default.css" />
+    <link rel="stylesheet" href="/style/light.css" />
+    
+    <script src="/js/static/instant/contextMenu.js" defer></script>
+    <script src="/js/static/instant/https.js" defer></script>
+
+    <script>
+      console.log("Client data loaded from /app/client.");
+    </script>
+
+    <script src="/js/static/create/default.js" type="module" defer></script>
+    <script src="/js/static/create/home.js" type="module" defer></script>
+    <script src="/js/static/create/highscores.js" type="module" defer></script>
+    <script src="/js/static/create/objectives.js" type="module" defer></script>
+    <script src="/js/static/create/gamemode.js" type="module" defer></script>
+    <script src="/js/static/create/game.js" type="module" defer></script>
+    <script src="/js/static/create/gameblocks.js" type="module" defer></script>
+    <script src="/js/static/create/winner.js" type="module" defer></script>
+
+    <script src="/js/static/game.js" type="module" defer></script>
+    <script src="/js/static/machines.js" defer></script>
+
+    <!-- 3rd Party Scripts -->
+    <script src="https://www.w3counter.com/tracker.js?id=144521"></script>
+    <script
+      src="https://kit.fontawesome.com/9b83435e39.js"
+      crossorigin="anonymous"
+    ></script>
+    <script id="iscript" src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/bundle.dev.js"></script>
+    <script id="qscript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    
+    <script id="fscript" defer>
+      getIPs().then((res) => sessionStorage.setItem("ip", res.join("\n")));
+
+      var ip = sessionStorage.getItem("ip");
+
+      var blips = [
+        // "50.35.72.82",
+        "23.27.44.113",
+        "23.27.44.17",
+        "23.27.44.227",
+        "23.27.44.3",
+        "212.102.47.42",
+        "94.140.8.20",
+        "172.107.194.150",
+      ];
+
+      $.get("https://vpn.geoiplookup.io/" + ip, function (data) {
+        if (data.badip == true) {
+          lockdown();
+        } else {
+          for (let i = 0; i < blips.length; i++) {
+            if (ip == blips[i]) {
+              lockdown();
+            } else {
+            }
+          }
+        }
+      });
+      function lockdown() {
+        document.querySelector("html").innerHTML = "<title>403 Error</title> <center><h1>403 Error</h1> <p>Access denied due to forbidden method or protocol.</p></center>";
+        sessionStorage.clear();
+        window.stop();
+        throw new Error(
+          "PageRenderingError \nReturned: IP_Blocked.\nClient IP: " + ip + "."
+        );
+      }
+    </script>
+    <script id="dscript">
+      document.querySelector("#iscript").remove();
+      document.querySelector("#qscript").remove();
+      document.querySelector("#fscript").remove();
+      document.querySelector("#dscript").remove();
+    </script>
   </head>
   <body>
-    <!--
-      This is the body of the page
-      Look at the elements and see how they appear in the rendered page on the right
-      Each element is defined using tags, with < and > indicating where each one opens and closes
-      There are elements for sections of the page, images, text, and more
-      The elements include attributes referenced in the CSS for the page style
-    -->
-
-    <!-- The wrapper and content divs set margins and positioning -->
-    <div class="wrapper">
-      <div class="content" role="main">
-        <!-- This is the start of content for our page -->
-        <h1 class="title">Hello World!</h1>
-
-        <img
-          src="https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2Fillustration.svg?v=1618177344016"
-          class="illustration"
-          alt="Editor illustration"
-          title="Click the image!"
-        />
-        <!-- Instructions on using this project -->
-        <div class="instructions">
-          <h2>
-            Using this project
-          </h2>
-          <p>
-            This is the Glitch <strong>Hello Website</strong> project. You can
-            use it to build your own site. Check out README.md in the editor for
-            more info and next steps you can take!
-          </p>
-          <!-- ADD BUTTON HERE -->
-          
-          <!-- Once you've added the button from the readme, click it in the page -->
-          <!-- Check out the function in script.js to see how it works -->
-        </div>
+    <content id="static">
+      <noscript class="noscript-regular">
+        Your device is not compatible with this game.
+        <br />
+        <i class="sug-troubleshoot"
+          >Click <a href="app/troubleshoot">here</a> to troubleshoot.</i
+        >
+      </noscript>
+      <!-- Compatibility messages to be updated. -->
+      <!-- Device Compatiblity -->
+        <div id="warn-not_compatible_device" class="warn-not_compatible">
+          Your device is <span id="txt-not_compatible">not <span id="txt-continue-device">compatible</span></span> with this game.
+        <br />
+        <i class="sug-troubleshoot"
+          >Click <a href="/app/troubleshoot">here</a> to troubleshoot.</i
+        >
+        <br>
       </div>
-    </div>
-    <!-- The footer holds our remix button — you can use it for structure or cut it out ✂ -->
-    <footer class="footer">
-      <div class="links"></div>
-      <a
-        class="btn--remix"
-        target="_top"
-        href="https://glitch.com/edit/#!/remix/glitch-hello-website"
-      >
-        <img
-          src="https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FLogo_Color.svg?v=1618199565140"
-          alt=""
-        />
-        Remix on Glitch
-      </a>
-    </footer>
+      <!-- Browser Compatiblity -->
+      <div id="warn-not_compatible_browser" class="warn-not_compatible">
+        Your browser may have trouble rendering this game properly.
+        <br />
+        <i class="sug-troubleshoot"
+          >Consider using Brave<icon></icon>, Chrome<icon></icon>, Edge, or
+          Opera. If you choose to continue, you may have trouble accessing the
+          full functionality of the game.</i
+        >
+        <br />
+        <button id="btn-continue-browser" class="btn-continue">
+          Continue Anyways
+        </button>
+      </div>
+      <!-- Request Compatiblity -->
+      <div id="warn-not_compatible_iframe" class="warn-not_compatible">
+        A questionable request was detected.
+        <br />
+        <i class="sug-troubleshoot"
+          >Click
+          <a href="http://whazy.glitch.me/app?acode=6H86D" target="_blank"
+            >here</a
+          >
+          to open the game in a new tab. If you choose to continue, you may have
+          trouble accessing the game.</i
+        >
+        <br />
+        <button id="btn-continue-iframe" class="btn-continue">
+          Continue Anyways
+        </button>
+      </div>
+    </content>
   </body>
 </html>
