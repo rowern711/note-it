@@ -30,7 +30,7 @@ UNDER REVIEW
 # FUNCTIONALITY
   - unique ids for folders and note names allowing for duplicate names
   - notes sotred in arrays or {} in localstorage
-    - { 
+    - `{ 
       foldername: {
           number_of_notes: #, 
           id: a94rf, 
@@ -41,7 +41,7 @@ UNDER REVIEW
             }
           }
       }
-    }
+    }`
     - no underscores in note name
   - more customizablity
   - always autosave
@@ -49,4 +49,4 @@ UNDER REVIEW
     - cmd t for new note?
   
   UNDER REVIEW
-  - remove unnessary stuff?
+  - remove unnessary elements with javascript
