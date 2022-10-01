@@ -43,4 +43,7 @@ background
   - no underscores in note name
 - more customizablity
 - always autosave
+- use keyboard shortcuts for stuff
+  - cmd t for new note?
+
 - remove unnessary stuff?
