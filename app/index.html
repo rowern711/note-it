@@ -1,0 +1,94 @@
+<!-- 
+ALL CODE IS PURLEY ORIGINAL.
+
+YOU MAY NOT COPY, MODIFY, MERGE, PUBLISH, DISTIBUTE, SUBLICENCE, AND/OR SELL THE CODE. 
+
+This web app is a product of
+
+███████╗██████╗ ██╗ ██████╗ ██████╗ ██████╗ ███████╗
+██╔════╝██╔══██╗██║██╔════╝██╔═══██╗██╔══██╗██╔════╝
+█████╗  ██████╔╝██║██║     ██║   ██║██║  ██║█████╗  
+██╔══╝  ██╔═══╝ ██║██║     ██║   ██║██║  ██║██╔══╝  
+███████╗██║     ██║╚██████╗╚██████╔╝██████╔╝███████╗
+╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝
+
+All rights reserved.       
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A innovative note taking app." />
+    <meta name="keywords" content="Note It" />
+
+    <link
+      rel="icon"
+      href="https://i.ibb.co/mXYy5Rk/Note-It-v25-0-0.png"
+    />
+
+    <title>Note It v25</title>
+
+    <link rel="stylesheet" href="/src/css/default.css" />
+    <link rel="stylesheet" href="/src/css/light.css" />
+    
+    <script src="/src/js/inst/contextMenu.js" defer></script>
+    <script src="/src/js/inst/https.js" defer></script>
+
+    <script src="/src/js/misc.js" type="module" defer></script>
+
+  </head>
+  <body>
+    <content id="static">
+      <noscript class="noscript-regular">
+        Your device is not compatible with this game.
+        <br />
+        <i class="sug-troubleshoot"
+          >Click <a href="app/troubleshoot">here</a> to troubleshoot.</i
+        >
+      </noscript>
+      <!-- Compatibility messages to be updated. -->
+      <!-- Device Compatiblity -->
+        <div id="warn-not_compatible_device" class="warn-not_compatible">
+          Your device is <span id="txt-not_compatible">not <span id="txt-continue-device">compatible</span></span> with this game.
+        <br />
+        <i class="sug-troubleshoot"
+          >Click <a href="/app/troubleshoot">here</a> to troubleshoot.</i
+        >
+        <br>
+      </div>
+      <!-- Browser Compatiblity -->
+      <div id="warn-not_compatible_browser" class="warn-not_compatible">
+        Your browser may have trouble rendering this game properly.
+        <br />
+        <i class="sug-troubleshoot"
+          >Consider using Brave<icon></icon>, Chrome<icon></icon>, Edge, or
+          Opera. If you choose to continue, you may have trouble accessing the
+          full functionality of the game.</i
+        >
+        <br />
+        <button id="btn-continue-browser" class="btn-continue">
+          Continue Anyways
+        </button>
+      </div>
+      <!-- Request Compatiblity -->
+      <div id="warn-not_compatible_iframe" class="warn-not_compatible">
+        A questionable request was detected.
+        <br />
+        <i class="sug-troubleshoot"
+          >Click
+          <a href="http://whazy.glitch.me/app?acode=6H86D" target="_blank"
+            >here</a
+          >
+          to open the game in a new tab. If you choose to continue, you may have
+          trouble accessing the game.</i
+        >
+        <br />
+        <button id="btn-continue-iframe" class="btn-continue">
+          Continue Anyways
+        </button>
+      </div>
+    </content>
+  </body>
+</html>

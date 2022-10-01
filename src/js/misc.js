@@ -32,18 +32,13 @@ atr = scythe.pkg.element.attribute;
 getRandom = scythe.pkg.random;
 
 
+/* START: *MODIFIED* PUBLIC SOURCE DERIVED CODE */
 let userAgent = navigator.userAgent;
 var browser;
 
 if (userAgent.match(/edg/i)) {
   browser = "edge";
 }
-// else if (userAgent.match(/firefox|fxios/i)) {
-//   browser = "firefox";
-// }
-// else if (userAgent.match(/safari/i)) {
-//   browser = "safari";
-// }
 else if (userAgent.match(/opr\//i)) {
   browser = "opera";
 } else if (userAgent.match(/chrome|chromium|crios/i)) {
@@ -51,31 +46,12 @@ else if (userAgent.match(/opr\//i)) {
 } else {
   browser = "other";
 }
-// alert(navigator.userAgent);
-// alert(browser);
 if (browser != "other") {
 } else {
   $("#warn-not_compatible_browser").style.display = "block";
 }
-/* END *MODIFIED* PUBLIC SOURCE DERIVED CODE */
-
-ss.remove("money");
-ss.remove("total-machines");
-for (let i = 0; i <= 10; i++) {
-  ss.remove("total-level-" + i);
-}
-
-ss.remove("total-level");
-ss.set("total-machines", "0");
-
-if (ls.get("highscores") == null) {
-  ls.set("highscores", [0, 0, 0]);
-} else {
-}
+/* END: *MODIFIED* PUBLIC SOURCE DERIVED CODE */
 
 console.log(
   "This web app is a product of \n███████╗██████╗ ██╗ ██████╗ ██████╗ ██████╗ ███████╗ \n██╔════╝██╔══██╗██║██╔════╝██╔═══██╗██╔══██╗██╔════╝ \n█████╗  ██████╔╝██║██║     ██║   ██║██║  ██║█████╗ \n██╔══╝  ██╔═══╝ ██║██║     ██║   ██║██║  ██║██╔══╝ \n███████╗██║     ██║╚██████╗╚██████╔╝██████╔╝███████╗ \n╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝ \nAll rights reserved."
-);
-console.log(
-  'Well, you found the console! \nAs a reward, here\'s a cheat code.\nType "cheat(x)", where x can be any amount of money, into the console below and press enter. \nEnjoy! :)'
 );
