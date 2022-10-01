@@ -1,0 +1,38 @@
+- folders
+- notes
+- groups?
+- model after apple notes
+- unique ids for folders and note names allowing for duplicate names
+- notes sotred in arrays or {} in localstorage
+  - { 
+    foldername: {
+        number_of_notes: #, 
+        id: a94rf, 
+        notes: {
+          notename: {
+            id: lej9e4, 
+            content: ""
+          }
+        }
+    }
+  }
+  - no underscores in note name
+- content ediable instead of textarea?
+  - allows for html and pictures etc...
+- word, character, and line count optional
+- more customizablity
+- print file
+- control output options in settings
+- modern look
+- word doc
+- link to another note?
+- ?tab=noteviewer#note_id
+- custom right click menu?
+  - for deleting notes
+- alert.js
+- launch n new wndow in settings
+- show time?
+- always autosave
+- collapse folders and notes
+- fullscreen notes
+- date created
