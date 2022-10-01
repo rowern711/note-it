@@ -22,6 +22,8 @@ looks
 - custom right click menu?
   - for deleting notes
 - show time?
+- unsupported browser support mode
+  - copy html after js render
 
 background
 - unique ids for folders and note names allowing for duplicate names
