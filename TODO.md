@@ -47,6 +47,12 @@ UNDER REVIEW
   - always autosave
   - use keyboard shortcuts for stuff
     - cmd t for new note?
+  - render the note view differently according to settings
+  - in function to display the note, use identifier
+    - `func("grid/list")` or `func("view: grid/list")` 
+    - USE a custom attribute `view="grid/list"`
+  - detect keydown contenteditable
+  - for the update feature, use json to link files to a specific update
   
   UNDER REVIEW
   - remove unnessary elements with javascript
