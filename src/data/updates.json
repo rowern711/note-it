@@ -1,7 +1,7 @@
 {
-  v25: {
-    create: {
-      
-    }
+  "v25": {
+    "create": [
+      "page.js"
+    ]
   }
 }
