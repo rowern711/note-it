@@ -14,6 +14,10 @@
   - collapse folders and notes
   - fullscreen notes
   - date created
+  - toolbar in the top
+    - collapse buttons on the buttons with seperators aligned with folder and notes
+    - seperators move as the width does too
+    - width is not changable
   
 IMPLEMENT LIKELY
   - contentediable instead of textarea?
