@@ -39,8 +39,8 @@ All rights reserved.
     <script src="/src/js/inst/contextMenu.js"></script>
     <script src="/src/js/inst/https.js"></script>
 
-    <!-- Creation scripts -->
-    <script sr="/src/js/create/pages.js" type="module" defer></script>
+    <!-- Init script -->
+    <script src="/src/js/init.js" type="module" defer></script>
 
     <!-- Misc scripts -->
     <script src="/src/js/misc.js" type="module" defer></script>
@@ -48,28 +48,41 @@ All rights reserved.
   <body>
     <content id="cnt-warning">
       <!-- JavaScript Compatiblity -->
-      <noscript class="noscript-regular">Your device is not compatible with Note It.
+      <noscript class="noscript-regular"
+        >Your device is not compatible with Note It.
         <br />
-        <i class="sug-troubleshoot">Click <a href="app/troubleshoot">here</a> to troubleshoot.</i>
+        <i class="sug-troubleshoot"
+          >Click <a href="app/troubleshoot">here</a> to troubleshoot.</i
+        >
       </noscript>
-      
+
       <!-- Browser Compatiblity -->
       <div id="warn-not_compatible_browser" class="warn-not_compatible">
         Your browser may have trouble rendering Note It properly.
         <br />
-        <i class="sug-troubleshoot">Consider using Brave<icon></icon>, Chrome<icon></icon>, Edge, or Opera. If you choose to continue, you may have trouble accessing the full functionality of Note It.</i>
+        <i class="sug-troubleshoot"
+          >Consider using Brave<icon></icon>, Chrome<icon></icon>, Edge, or
+          Opera. If you choose to continue, you may have trouble accessing the
+          full functionality of Note It.</i
+        >
         <br />
         <button id="btn-continue-browser" class="btn-continue">
           Continue Anyways
         </button>
       </div>
-      
+
       <!-- Request Compatiblity -->
       <div id="warn-not_compatible_iframe" class="warn-not_compatible">
         A questionable request was detected.
         <br />
-        <i class="sug-troubleshoot">Click
-          <a href="http://whazy.glitch.me/app?acode=6H86D" target="_blank">here</a> to open the game in a new tab. If you choose to continue, you may have trouble accessing the game.</i>
+        <i class="sug-troubleshoot"
+          >Click
+          <a href="http://whazy.glitch.me/app?acode=6H86D" target="_blank"
+            >here</a
+          >
+          to open the game in a new tab. If you choose to continue, you may have
+          trouble accessing the game.</i
+        >
         <br />
         <button id="btn-continue-iframe" class="btn-continue">
           Continue Anyways

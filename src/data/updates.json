@@ -1,7 +1,8 @@
 {
-  "v25": {
-    "create": [
-      "page.js"
-    ]
+  "v25.0.0": {
+    "date_released": "n/a",
+    "scripts": {
+      "create": []
+    }
   }
 }

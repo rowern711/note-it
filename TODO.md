@@ -36,6 +36,7 @@ REJECTED
 - ?tab=noteviewer#note_id
 
 # FUNCTIONALITY
+  - Append scripts based on update.
   - Use unique ids for folders and note names allowing for duplicate names.
   - Notes sorted in arrays or {} within LocalStorage.
     - `{ 
