@@ -21,6 +21,6 @@ window.onload = function() {
 
 var version = localStorage.getItem("")
 
-$.get("/src/data/updates.json", function(data){
-  alert("Data: " + JSON.stringify(data))[version];
-});
+// $.get("/src/data/updates.json", function(data){
+//   alert("Data: " + JSON.stringify(data))[version];
+// });

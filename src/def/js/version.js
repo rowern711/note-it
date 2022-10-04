@@ -19,13 +19,17 @@ var data = localStorage.getItem("data");
 
 if (data == null) {
   $.get("/src/data/updates.json", function(data){
-    var data_ = {
-      
-    }
-      localStorage.setItem("data", data[version])
+    var data_base = {
+      app: {
+        version: data["latest_version"]
+      }
+    };
+    localStorage.setItem("data", JSON.stringify(data_base));
+    
   });
+} else {
+  
 }
 
 // var version = JSON.parse(ls.get("data"))["app"]["version"];
 
-alert(data)
