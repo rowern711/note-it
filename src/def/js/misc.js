@@ -15,7 +15,7 @@ This web app is a product of
 All rights reserved.    
 */
 
-import { scythe } from "/js/static/scythe.js";
+import { scythe } from "https://epicode.glitch.me//js/libraries/scythe/scythe.js";
 
 var $, ss, ls, move, loc, $class, append, prepend, element, txt, atr, getRandom;
 $ = scythe.pkg.query;
