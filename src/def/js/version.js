@@ -17,41 +17,34 @@ All rights reserved.
 
 var data = localStorage.getItem("data");
 var client = {
-  version: data
-  // function () {
-  //   JSON.parse(localStorage.getItem("data"))["client"]["version"];
-  // },
+  version: JSON.parse(localStorage.getItem("data"))["client"]["version"],
 };
 
-console.log(client.version);
-
 if (data == null) {
-  func.autoupdate();
+  autoupdate();
 } else {
   if (client.version == null) {
-    func.autoupdate();
+    autoupdate();
+  } else {
+    $.get("/src/data/updates.json", function (data) {
+      data[client.version]["scripts"]
+    });
   }
 }
 
-var func = {
-  autoupdate: function () {
-    $.get("/src/data/updates.json", function (data) {
-      var latest_version = data["latest_version"];
-      var data_base = {
-        app: {
-          version: latest_version,
-        },
-      };
-      localStorage.setItem("data", JSON.stringify(data_base));
-      alert(
-        "The latest version of Note It (v" +
-          latest_version +
-          ") has been automatically installed."
-      );
-    });
-  },
-};
-
-// var version = JSON.parse(ls.get("data"))["app"]["version"];
-
-// JSON.parse(localStorage.getItem("data"))["client"]["version"]
+function autoupdate() {
+  $.get("/src/data/updates.json", function (data) {
+    var latest_version = data["latest_version"];
+    var data_base = {
+      client: {
+        version: latest_version,
+      },
+    };
+    localStorage.setItem("data", JSON.stringify(data_base));
+    alert(
+      "The latest version of Note It (" +
+        latest_version +
+        ") has been automatically installed."
+    );
+  });
+}
