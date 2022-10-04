@@ -15,12 +15,17 @@ This web app is a product of
 All rights reserved.    
 */
 
-window.onload = function() {
-  document.querySelector("#loadingScreen").style.display = "none";
+var data = localStorage.getItem("data");
+
+if (data == null) {
+  $.get("/src/data/updates.json", function(data){
+    var data_ = {
+      
+    }
+      localStorage.setItem("data", data[version])
+  });
 }
 
-var version = localStorage.getItem("")
+// var version = JSON.parse(ls.get("data"))["app"]["version"];
 
-$.get("/src/data/updates.json", function(data){
-  alert("Data: " + JSON.stringify(data))[version];
-});
+alert(data)
