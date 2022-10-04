@@ -1,8 +1,8 @@
 {
   "v25.0.0": {
     "date_released": "n/a",
-    "scripts": {
-      "create": []
-    }
+    "scripts": [
+      "/src/v25.0.0/js/misc.js"
+    ]
   }
 }
