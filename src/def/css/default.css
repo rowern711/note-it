@@ -34,62 +34,36 @@ font-family: 'Poppins', sans-serif;
 */
 
 
-html {
-  font-family: Roboto, sans-serif;
+#loadingScreen {
+  background: var(--main-window-background-color);
   color: var(--main-text-color);
-  background: var(--main-background-color);
-  overflow: scroll;
-  overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-.noscript-regular,
-.warn-not_compatible {
-  color: var(--main-text-color);
-  background: var(--secondary-background-color);
+  display: none;
   position: fixed;
-  right: 0;
+  top: 1rem;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 20;
+  left: 1rem;
+  padding: 1rem;
+  border-radius: 2vh;
+}
+#loader {
+  border: 2vh solid var(--main-header-color);
+  border-radius: 50%;
+  border-top: 2vh solid var(--main-window-background-color);
+  width: 16vh;
+  height: 16vh;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+  position: fixed;
   left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
-  text-align: center;
-  padding: 2vw;
-  z-index: 15;
-  font-size: 7vh;
-  font-family: "Fredoka One", sans-serif;
-}
-.btn-continue {
-  padding: 2vh;
-  border-radius: 10vh;
-  border: 0.3vh solid var(--main-border-color);
-  font-size: 3.4vh;
-  margin: 3vh;
-  background: var(--secondary-background-color);
-}
-.btn-continue:hover {
-  background: var(--main-background-color);
-  color: var(--secondary-text-color);
-}
-#cnt-main {
-  position: fixed;
-  right: 0;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 10;
-  background: var(--main-background-color);
-}
-.warn-not_compatible {
-  display: none;
-}
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-  display: none;
-}
-::selection {
-  color: var(--main-text-color);
-  background: var(--selection-color);
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
 }
