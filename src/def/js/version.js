@@ -39,8 +39,10 @@ if (data == null) {
     autoupdate();
   } else {
     $.get("/src/data/updates.json", function (data) {
+      append(document.createComment("Version Scripts"), head);
       for (let i = 0; i < data[client.version]["scripts"].length; i++) {
         var script = element("script");
+        atr(script, "v", client.version);
         atr(script, "src", data[client.version]["scripts"][i][0]);
         if (data[client.version]["scripts"][i][1] == "module") {
           atr(script, "type", "module");
@@ -50,6 +52,7 @@ if (data == null) {
       }
       for (let i = 0; i < data[client.version]["stylesheets"].length; i++) {
         var style = element("link");
+        atr(style, "v", client.version);
         atr(style, "rel", "stylesheet");
         atr(style, "href", data[client.version]["stylesheets"][i])
         append(style, head);

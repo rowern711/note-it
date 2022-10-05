@@ -93,3 +93,7 @@ html {
   color: var(--main-text-color);
   background: var(--selection-color);
 }
+
+#loadingScreen {
+  display: none;
+}

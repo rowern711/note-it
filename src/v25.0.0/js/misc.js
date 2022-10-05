@@ -35,4 +35,4 @@ $("#btn-continue-iframe").onclick = function () {
   }, 1000);
 };
 
-alert("hiiii!")
+alert('src/v25.0.0/js/misc.js')
