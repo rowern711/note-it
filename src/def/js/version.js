@@ -68,7 +68,7 @@ function check() {
     $.get("/src/data/updates.json", function (data) {
       var latest_version = data["latest_version"];
       if (
-        ls.get("getwarn_" + latest_version) ==
+        ls.get("newupdate_" + latest_version) ==
         "true"
       ) {
       } else {
@@ -80,7 +80,7 @@ function check() {
               latest_version +
               ")."
           );
-          ls.set("getwarn_" + latest_version, "true")
+          ls.set("newupdate_" + latest_version, "true")
         }
       }
       append(document.createComment("Version Scripts"), head);
