@@ -9,5 +9,13 @@
     "scripts": [
       ["/src/v25.0.0/js/misc.js", "module", "defer"]
     ]
+  }, 
+  "v25.0.1": {
+    "date_released": "n/a",
+    "stylesheets": [
+    ],
+    "scripts": [
+      ["src/v25.0.0/js/create/pages.js", "module", "defer"]
+    ]
   }
 }

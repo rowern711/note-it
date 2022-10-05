@@ -50,47 +50,53 @@ function check() {
     var client = {
       version: JSON.parse(ls.get("data"))["client"]["version"],
     };
-    if (client.version == null) {
-      $.get("/src/data/updates.json", function (data) {
-        var latest_version = data["latest_version"];
-        var data_base = {
-          client: {
-            version: latest_version,
-          },
-        };
-        ls.set("data", JSON.stringify(JSON.parse(ls.get("data")).assign("")));
-        alert(
-          "The latest version of Note It (" +
-            latest_version +
-            ") has been automatically installed."
-        );
-        check();
-      });
-    } else {
-      $.get("/src/data/updates.json", function (data) {
-        var latest_version = data["latest_version"];
+    // if (client.version == null) {
+    //   $.get("/src/data/updates.json", function (data) {
+    //     var latest_version = data["latest_version"];
+    //     var data_base = {
+    //         version: latest_version,
+    //     };
+    //     ls.set("data", JSON.stringify(JSON.parse(ls.get("data")).assign("client", data_base)));
+    //     alert(
+    //       "The latest version of Note It (" +
+    //         latest_version +
+    //         ") has been automatically installed."
+    //     );
+    //     check();
+    //   });
+    // } else {
+    $.get("/src/data/updates.json", function (data) {
+      var latest_version = data["latest_version"];
+      if (JSON.parse(ls.get("data"))["client"]["getwarn"][latest_version] == "true") {
         if (client.version !== latest_version) {
-          alert("");
+          alert(
+            "You currently have " +
+              client.version +
+              " of Note It. It is reccommended that you install the the latest version of Note It (" +
+              latest_version +
+              ")."
+          );
         }
-        append(document.createComment("Version Scripts"), head);
-        for (let i = 0; i < data[client.version]["scripts"].length; i++) {
-          var script = element("script");
-          atr(script, "v", client.version);
-          atr(script, "src", data[client.version]["scripts"][i][0]);
-          if (data[client.version]["scripts"][i][1] == "module") {
-            atr(script, "type", "module");
-          } else if (data[client.version]["scripts"][i][2] == "defer") {
-          }
-          append(script, head);
+      }
+      append(document.createComment("Version Scripts"), head);
+      for (let i = 0; i < data[client.version]["scripts"].length; i++) {
+        var script = element("script");
+        atr(script, "v", client.version);
+        atr(script, "src", data[client.version]["scripts"][i][0]);
+        if (data[client.version]["scripts"][i][1] == "module") {
+          atr(script, "type", "module");
+        } else if (data[client.version]["scripts"][i][2] == "defer") {
         }
-        for (let i = 0; i < data[client.version]["stylesheets"].length; i++) {
-          var style = element("link");
-          atr(style, "v", client.version);
-          atr(style, "rel", "stylesheet");
-          atr(style, "href", data[client.version]["stylesheets"][i]);
-          append(style, head);
-        }
-      });
-    }
+        append(script, head);
+      }
+      for (let i = 0; i < data[client.version]["stylesheets"].length; i++) {
+        var style = element("link");
+        atr(style, "v", client.version);
+        atr(style, "rel", "stylesheet");
+        atr(style, "href", data[client.version]["stylesheets"][i]);
+        append(style, head);
+      }
+    });
   }
 }
+// }
