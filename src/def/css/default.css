@@ -24,7 +24,7 @@ All rights reserved.
   right: 0px;
   left: 0px;
   padding: 0px;
-  z-index: 20;
+/*   z-index: 20; */
   border-radius: 2vh;
 }
 #loader {

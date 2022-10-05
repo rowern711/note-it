@@ -36,6 +36,7 @@ function check() {
       var data_base = {
         client: {
           version: latest_version,
+          update_notification: {}
         },
       };
       ls.set("data", JSON.stringify(data_base));
@@ -68,7 +69,7 @@ function check() {
     $.get("/src/data/updates.json", function (data) {
       var latest_version = data["latest_version"];
       if (
-        JSON.parse(ls.get("data"))["client"]["getwarn_" + latest_version] ==
+        JSON.parse(ls.get("data"))["client"]["update_notification"][latest_version] ==
         "true"
       ) {
       } else {
@@ -81,7 +82,7 @@ function check() {
               ")."
           );
           var dat = JSON.parse(ls.get("data"));
-          dat["client"]["getwarn_" + latest_version] = "true";
+          dat["client"]["update_notification"][latest_version] = "true";
           ls.set("data", JSON.stringify(dat))
         }
       }
