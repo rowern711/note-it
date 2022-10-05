@@ -31,15 +31,47 @@ check();
 
 function check() {
   if (ls.get("data") == null) {
-    autoupdate();
+    $.get("/src/data/updates.json", function (data) {
+      var latest_version = data["latest_version"];
+      var data_base = {
+        client: {
+          version: latest_version,
+        },
+      };
+      ls.set("data", JSON.stringify(data_base));
+      alert(
+        "The latest version of Note It (" +
+          latest_version +
+          ") has been automatically installed."
+      );
+      check();
+    });
   } else {
     var client = {
       version: JSON.parse(ls.get("data"))["client"]["version"],
     };
     if (client.version == null) {
-      autoupdate();
+      $.get("/src/data/updates.json", function (data) {
+        var latest_version = data["latest_version"];
+        var data_base = {
+          client: {
+            version: latest_version,
+          },
+        };
+        ls.set("data", JSON.stringify(JSON.parse(ls.get("data")).assign("")));
+        alert(
+          "The latest version of Note It (" +
+            latest_version +
+            ") has been automatically installed."
+        );
+        check();
+      });
     } else {
       $.get("/src/data/updates.json", function (data) {
+        var latest_version = data["latest_version"];
+        if (client.version !== latest_version) {
+          alert("");
+        }
         append(document.createComment("Version Scripts"), head);
         for (let i = 0; i < data[client.version]["scripts"].length; i++) {
           var script = element("script");
@@ -61,21 +93,4 @@ function check() {
       });
     }
   }
-}
-function autoupdate() {
-  $.get("/src/data/updates.json", function (data) {
-    var latest_version = data["latest_version"];
-    var data_base = {
-      client: {
-        version: latest_version,
-      },
-    };
-    ls.set("data", JSON.stringify(data_base));
-    alert(
-      "The latest version of Note It (" +
-        latest_version +
-        ") has been automatically installed."
-    );
-    check();
-  });
 }
