@@ -31,6 +31,11 @@ txt = scythe.pkg.element.text;
 atr = scythe.pkg.element.attribute;
 getRandom = scythe.pkg.random;
 
-window.onload = function() {
-  if ($("#loadingScreen").style.display = "")
-}
+window.onload = function () {
+  setTimeout(function () {
+    if ($("#loadingScreen") == null) {
+    } else {
+      document.body = 'There was an error loading the page. Please reload or click <a href="javascript:localStorage.setItem(localStorage.getItem())">here</a> to clear client cache.';
+    }
+  }, 2000);
+};
