@@ -36,7 +36,7 @@ function check() {
       var data_base = {
         client: {
           version: latest_version,
-          update_notification: {}
+          update_notification: {},
         },
       };
       ls.set("data", JSON.stringify(data_base));
@@ -55,9 +55,12 @@ function check() {
       $.get("/src/data/updates.json", function (data) {
         var latest_version = data["latest_version"];
         var data_base = {
+          client: {
             version: latest_version,
+            update_notification: {},
+          },
         };
-        ls.set("data", JSON.stringify(JSON.parse(ls.get("data")).assign("client", data_base)));
+        ls.set("data", JSON.stringify(data_base));
         alert(
           "The latest version of Note It (" +
             latest_version +
@@ -66,45 +69,46 @@ function check() {
         check();
       });
     } else {
-    $.get("/src/data/updates.json", function (data) {
-      var latest_version = data["latest_version"];
-      if (
-        JSON.parse(ls.get("data"))["client"]["update_notification"][latest_version] ==
-        "true"
-      ) {
-      } else {
-        if (client.version !== latest_version) {
-          alert(
-            "You currently have " +
-              client.version +
-              " of Note It. It is reccommended that you install the the latest version of Note It (" +
-              latest_version +
-              ")."
-          );
-          var dat = JSON.parse(ls.get("data"));
-          dat["client"]["update_notification"][latest_version] = "true";
-          ls.set("data", JSON.stringify(dat))
+      $.get("/src/data/updates.json", function (data) {
+        var latest_version = data["latest_version"];
+        if (
+          JSON.parse(ls.get("data"))["client"]["update_notification"][
+            latest_version
+          ] == "true"
+        ) {
+        } else {
+          if (client.version !== latest_version) {
+            alert(
+              "You currently have " +
+                client.version +
+                " of Note It. It is reccommended that you install the the latest version of Note It (" +
+                latest_version +
+                ")."
+            );
+            var dat = JSON.parse(ls.get("data"));
+            dat["client"]["update_notification"][latest_version] = "true";
+            ls.set("data", JSON.stringify(dat));
+          }
         }
-      }
-      append(document.createComment("Version Scripts"), head);
-      for (let i = 0; i < data[client.version]["scripts"].length; i++) {
-        var script = element("script");
-        atr(script, "v", client.version);
-        atr(script, "src", data[client.version]["scripts"][i][0]);
-        if (data[client.version]["scripts"][i][1] == "module") {
-          atr(script, "type", "module");
-        } else if (data[client.version]["scripts"][i][2] == "defer") {
+        append(document.createComment("Version Scripts"), head);
+        for (let i = 0; i < data[client.version]["stylesheets"].length; i++) {
+          var style = element("link");
+          atr(style, "v", client.version);
+          atr(style, "rel", "stylesheet");
+          atr(style, "href", data[client.version]["stylesheets"][i]);
+          append(style, head);
         }
-        append(script, head);
-      }
-      for (let i = 0; i < data[client.version]["stylesheets"].length; i++) {
-        var style = element("link");
-        atr(style, "v", client.version);
-        atr(style, "rel", "stylesheet");
-        atr(style, "href", data[client.version]["stylesheets"][i]);
-        append(style, head);
-      }
-    });
+        for (let i = 0; i < data[client.version]["scripts"].length; i++) {
+          var script = element("script");
+          atr(script, "v", client.version);
+          atr(script, "src", data[client.version]["scripts"][i][0]);
+          if (data[client.version]["scripts"][i][1] == "module") {
+            atr(script, "type", "module");
+          } else if (data[client.version]["scripts"][i][2] == "defer") {
+          }
+          append(script, head);
+        }
+      });
+    }
   }
-}
 }

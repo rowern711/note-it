@@ -22,7 +22,7 @@ window.onload = function () {
       document.body.innerHTML =
         'There was an error loading the page. Please reload or click <a href="javascript:cache.clear()">here</a> to clear client cache.';
     }
-  }, 2000);
+  }, 5000);
 };
 
 var cache = {

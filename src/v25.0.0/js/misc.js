@@ -37,4 +37,4 @@ $("#btn-continue-iframe").onclick = function () {
 
 $("#loadingScreen").remove();
 
-alert('src/v25.0.0/js/misc.js')
+alert('/src/v25.0.0/js/misc.js')
