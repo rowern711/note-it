@@ -25,42 +25,43 @@ prepend = scythe.pkg.element.prepend;
 element = scythe.pkg.element.create;
 txt = scythe.pkg.element.text;
 atr = scythe.pkg.element.attribute;
-
-var data = ls.get("data");
 var head = document.querySelector("head");
 
-if (data == null) {
-  autoupdate();
-} else {
-  var client = {
-    version: JSON.parse(ls.get("data"))["client"]["version"],
-  };
-  if (client.version == null) {
+check();
+
+function check() {
+  if (ls.get("data") == null) {
     autoupdate();
   } else {
-    $.get("/src/data/updates.json", function (data) {
-      append(document.createComment("Version Scripts"), head);
-      for (let i = 0; i < data[client.version]["scripts"].length; i++) {
-        var script = element("script");
-        atr(script, "v", client.version);
-        atr(script, "src", data[client.version]["scripts"][i][0]);
-        if (data[client.version]["scripts"][i][1] == "module") {
-          atr(script, "type", "module");
-        } else if (data[client.version]["scripts"][i][2] == "defer") {
+    var client = {
+      version: JSON.parse(ls.get("data"))["client"]["version"],
+    };
+    if (client.version == null) {
+      autoupdate();
+    } else {
+      $.get("/src/data/updates.json", function (data) {
+        append(document.createComment("Version Scripts"), head);
+        for (let i = 0; i < data[client.version]["scripts"].length; i++) {
+          var script = element("script");
+          atr(script, "v", client.version);
+          atr(script, "src", data[client.version]["scripts"][i][0]);
+          if (data[client.version]["scripts"][i][1] == "module") {
+            atr(script, "type", "module");
+          } else if (data[client.version]["scripts"][i][2] == "defer") {
+          }
+          append(script, head);
         }
-        append(script, head);
-      }
-      for (let i = 0; i < data[client.version]["stylesheets"].length; i++) {
-        var style = element("link");
-        atr(style, "v", client.version);
-        atr(style, "rel", "stylesheet");
-        atr(style, "href", data[client.version]["stylesheets"][i])
-        append(style, head);
-      }
-    });
+        for (let i = 0; i < data[client.version]["stylesheets"].length; i++) {
+          var style = element("link");
+          atr(style, "v", client.version);
+          atr(style, "rel", "stylesheet");
+          atr(style, "href", data[client.version]["stylesheets"][i]);
+          append(style, head);
+        }
+      });
+    }
   }
 }
-
 function autoupdate() {
   $.get("/src/data/updates.json", function (data) {
     var latest_version = data["latest_version"];
@@ -75,5 +76,6 @@ function autoupdate() {
         latest_version +
         ") has been automatically installed."
     );
+    check();
   });
 }
