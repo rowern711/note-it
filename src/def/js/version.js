@@ -67,7 +67,11 @@ function check() {
     // } else {
     $.get("/src/data/updates.json", function (data) {
       var latest_version = data["latest_version"];
-      if (JSON.parse(ls.get("data"))["client"]["getwarn"][latest_version] == "true") {
+      if (
+        ls.get("getwarn_" + latest_version) ==
+        "true"
+      ) {
+      } else {
         if (client.version !== latest_version) {
           alert(
             "You currently have " +
@@ -76,6 +80,7 @@ function check() {
               latest_version +
               ")."
           );
+          ls.set("getwarn_" + latest_version, "true")
         }
       }
       append(document.createComment("Version Scripts"), head);
