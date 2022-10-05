@@ -1,16 +1,6 @@
 {
-  "latest_version": "v25.0.1",
+  "latest_version": "v25.0.0",
   "v25.0.0": {
-    "date_released": "n/a",
-    "stylesheets": [
-      "/src/v25.0.0/css/light.css",
-      "/src/v25.0.0/css/base.css"
-    ],
-    "scripts": [
-      ["/src/v25.0.0/js/misc.js", "module", "defer"]
-    ]
-  }, 
-  "v25.0.1": {
     "date_released": "n/a",
     "stylesheets": [
       "/src/v25.0.0/css/light.css",
