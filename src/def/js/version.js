@@ -51,21 +51,21 @@ function check() {
     var client = {
       version: JSON.parse(ls.get("data"))["client"]["version"],
     };
-    // if (client.version == null) {
-    //   $.get("/src/data/updates.json", function (data) {
-    //     var latest_version = data["latest_version"];
-    //     var data_base = {
-    //         version: latest_version,
-    //     };
-    //     ls.set("data", JSON.stringify(JSON.parse(ls.get("data")).assign("client", data_base)));
-    //     alert(
-    //       "The latest version of Note It (" +
-    //         latest_version +
-    //         ") has been automatically installed."
-    //     );
-    //     check();
-    //   });
-    // } else {
+    if (client.version == null) {
+      $.get("/src/data/updates.json", function (data) {
+        var latest_version = data["latest_version"];
+        var data_base = {
+            version: latest_version,
+        };
+        ls.set("data", JSON.stringify(JSON.parse(ls.get("data")).assign("client", data_base)));
+        alert(
+          "The latest version of Note It (" +
+            latest_version +
+            ") has been automatically installed."
+        );
+        check();
+      });
+    } else {
     $.get("/src/data/updates.json", function (data) {
       var latest_version = data["latest_version"];
       if (
@@ -107,4 +107,4 @@ function check() {
     });
   }
 }
-// }
+}
