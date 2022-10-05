@@ -35,7 +35,17 @@ window.onload = function () {
   setTimeout(function () {
     if ($("#loadingScreen") == null) {
     } else {
-      document.body = 'There was an error loading the page. Please reload or click <a href="javascript:localStorage.setItem(localStorage.getItem())">here</a> to clear client cache.';
+      var cache = {
+        clear: function c() {
+          var data = JSON.parse(localStorage.getItem("data"));
+          data["client"] = "";
+          var str = JSON.stringify(data);
+          localStorage.setItem("data", str);
+          location.reload();
+        },
+      };
+      document.body.innerHTML =
+        'There was an error loading the page. Please reload or click <a href="javascript:cache.clear()">here</a> to clear client cache.';
     }
   }, 2000);
 };
