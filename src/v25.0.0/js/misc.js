@@ -35,6 +35,6 @@ $("#btn-continue-iframe").onclick = function () {
   }, 1000);
 };
 
-$("#loadingScreen").remove();
+setTimeout(function() {$("#loadingScreen").remove()}, 1000)
 
 alert('/src/v25.0.0/js/misc.js')
