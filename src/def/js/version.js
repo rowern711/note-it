@@ -15,9 +15,20 @@ This web app is a product of
 All rights reserved.    
 */
 
-var data = localStorage.getItem("data");
+import { scythe } from "https://epicode.glitch.me//js/libraries/scythe/scythe.js";
+
+var $, ss, ls, append, prepend, element, txt, atr;
+ss = scythe.pkg.sessionStorage;
+ls = scythe.pkg.localStorage;
+append = scythe.pkg.element.append;
+prepend = scythe.pkg.element.prepend;
+element = scythe.pkg.element.create;
+txt = scythe.pkg.element.text;
+atr = scythe.pkg.element.attribute;
+
+var data = ls.get("data");
 var client = {
-  version: JSON.parse(localStorage.getItem("data"))["client"]["version"],
+  version: JSON.parse(ls.get("data"))["client"]["version"],
 };
 
 if (data == null) {
@@ -27,7 +38,11 @@ if (data == null) {
     autoupdate();
   } else {
     $.get("/src/data/updates.json", function (data) {
-      data[client.version]["scripts"]
+      // for (let i = 0; i < data[client.version]["scripts"].length; i++) {
+      //   var script = element("script");
+      //   atr(script, "src", data[client.version]["scripts"][i]);
+      //   append(document.head, script);
+      // }
     });
   }
 }
@@ -40,7 +55,7 @@ function autoupdate() {
         version: latest_version,
       },
     };
-    localStorage.setItem("data", JSON.stringify(data_base));
+    ls.set("data", JSON.stringify(data_base));
     alert(
       "The latest version of Note It (" +
         latest_version +
