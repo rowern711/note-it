@@ -7,7 +7,7 @@
       "/src/v25.0.0/css/base.css"
     ],
     "scripts": [
-      "/src/v25.0.0/js/misc.js"
+      ["/src/v25.0.0/js/misc.js", "module", "defer"]
     ]
   }
 }

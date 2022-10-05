@@ -34,3 +34,5 @@ $("#btn-continue-iframe").onclick = function () {
     $("#warn-not_compatible_iframe").style.display = "none";
   }, 1000);
 };
+
+alert("hiiii!")
