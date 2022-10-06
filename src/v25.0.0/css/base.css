@@ -1,0 +1,99 @@
+/* 
+ALL CODE IS PURLEY ORIGINAL.
+
+YOU MAY NOT COPY, MODIFY, MERGE, PUBLISH, DISTIBUTE, SUBLICENCE, AND/OR SELL THE CODE. 
+
+This web app is a product of
+
+███████╗██████╗ ██╗ ██████╗ ██████╗ ██████╗ ███████╗
+██╔════╝██╔══██╗██║██╔════╝██╔═══██╗██╔══██╗██╔════╝
+█████╗  ██████╔╝██║██║     ██║   ██║██║  ██║█████╗  
+██╔══╝  ██╔═══╝ ██║██║     ██║   ██║██║  ██║██╔══╝  
+███████╗██║     ██║╚██████╗╚██████╔╝██████╔╝███████╗
+╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝
+
+All rights reserved.   
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fredoka+One&family=Goldman&family=Josefin+Sans&family=Paytone+One&family=Poppins&family=Radio+Canada&family=Righteous&family=Baumans&family=Kdam+Thmor+Pro&family=Montserrat:wght@500&family=Rubik&family=Poppins&display=swap");
+
+/*
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Fredoka One', sans-serif;
+font-family: 'Goldman', sans-serif;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Paytone One', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Radio Canada', sans-serif;
+font-family: 'Righteous', sans-serif;
+font-family: 'Baumans', sans-serif;
+font-family: 'Kdam Thmor Pro', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Rubik', sans-serif;
+font-family: 'Poppins', sans-serif;
+*/
+
+
+html {
+  font-family: Roboto, sans-serif;
+  color: var(--main-text-color);
+  background: var(--main-background-color);
+  overflow: scroll;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.noscript-regular,
+.warn-not_compatible {
+  color: var(--main-text-color);
+  background: var(--secondary-background-color);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 2vw;
+  z-index: 15;
+  font-size: 7vh;
+  font-family: "Fredoka One", sans-serif;
+}
+.btn-continue {
+  padding: 2vh;
+  border-radius: 10vh;
+  border: 0.3vh solid var(--main-border-color);
+  font-size: 3.4vh;
+  margin: 3vh;
+  background: var(--secondary-background-color);
+}
+.btn-continue:hover {
+  background: var(--main-background-color);
+  color: var(--secondary-text-color);
+}
+#cnt-main {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  background: var(--main-background-color);
+}
+.warn-not_compatible {
+  display: none;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  display: none;
+}
+::selection {
+  color: var(--main-text-color);
+  background: var(--selection-color);
+}
+
+#loadingScreen {
+  display: none;
+}
