@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta name="color-scheme" content="light dark" />
+    <title>/app/terminal</title>
+    <link
+      rel="icon"
+      href="https://epicode-assets.glitch.me/assets/terminal/favicon.png"
+    />
+    <script src="/src/def/js/inst/contextMenu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/src/terminal/command.js" defer></script>
+    <link rel="stylesheet" href="/src/terminal/style.css" />
+  </head>
+  <body
+    onkeypress="document.querySelector('#input').focus(); document.querySelector('#input').click();"
+  >
+    <iframe src="/app/client" style="display: none"></iframe>
+    <pre
+      id="wrap"
+    ><span id="welcome"></span><noscript style="color: red;">> Terminal initiation failed.</noscript><span
+      id="response"
+    ></span
+    ><span id="else"><span id="pre"></span><span id="input" onkeydown="" contenteditable="false" onselectstart="return false;" onmousedown="return false;" spellcheck="false"></span
+    ><span id="blinker">&nbsp;</span></span></pre>
+  </body>
+</html>

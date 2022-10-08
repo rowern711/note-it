@@ -1,1 +1,0 @@
-alert("/src/v25.0.0/js/create/pages.js")

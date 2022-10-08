@@ -1,0 +1,92 @@
+:root {
+  color: #17e517;
+  border: #00ff00;
+  background: black;
+}
+body {
+  padding: 3vh;
+  scroll-behavior: smooth;
+  color: var(--color);
+  margin: 0px;
+  max-height: 100%;
+  overflow: hidden;
+  display: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  background-color: black;
+  -webkit-user-select: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  /* background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%); */
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+a {
+  background: none;
+  border: 0.2vh dotted #17e517;
+  border-radius: 1vh;
+  color: var(--color);
+  padding: 0px 0.3vh 0px 0.3vh;
+  margin: 0px;
+}
+a:hover {
+  cursor: pointer;
+}
+pre {
+  word-wrap: break-all;
+  font: 2.2vh Inconsolata, monospace;
+  white-space: pre-wrap;
+  scrollbar-width: none;
+  background: transparent;
+  overflow: scroll;
+  height: 100%;
+  word-break: break-word;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+pre::-webkit-scrollbar {
+  display: none;
+}
+.user {
+  word-break: break-all;
+}
+#input,
+#blinker {
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  caret-color: transparent;
+}
+#input {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+#input::selection {
+  background: transparent;
+  color: var(--color);
+}
+#blinker {
+  width: 1.05vh;
+  margin-left: 0.09vw;
+  background: #17e517;
+  display: none;
+  animation: blinker 0.8s linear infinite;
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+img {
+  display: none;
+}
+#help {
+  display: none;
+}

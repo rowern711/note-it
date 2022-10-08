@@ -17,7 +17,6 @@
   - URL
   - /app/notes?note=note_id
   - /app/notes#note_id
-  - Use Alert.js.
   
 IMPLEMENT LIKELY
   - Contentediable instead of textarea, allowing for html and pictures etc... 
@@ -34,6 +33,9 @@ UNDER REVIEW
 
 REJECTED
 - ?tab=noteviewer#note_id
+
+IMPLETMENTED
+- Use Alert.js.
 
 # FUNCTIONALITY
   - Append scripts based on update.

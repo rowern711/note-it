@@ -27,11 +27,42 @@ txt = scythe.pkg.element.text;
 atr = scythe.pkg.element.attribute;
 var head = document.querySelector("head");
 
+var update_data = "/src/data/updates.json";
+
 check();
+
+var msg = {
+  installed: {
+    title: function (latest) {
+      return "Welcome to Note It!";
+    },
+    content: function (latest) {
+      return (
+        "The newest update of Note It (" +
+        latest +
+        ") has been automatically installed! Go to the Update Center in settings to learn more."
+      );
+    },
+  },
+  update: {
+    title: function (client, latest) {
+      return "New update of Note It!";
+    },
+    content: function (client, latest) {
+      return (
+        "You currently have Note It " +
+        client +
+        ". Go to Update Center in settings to install Note It " +
+        latest +
+        "."
+      );
+    },
+  },
+};
 
 function check() {
   if (ls.get("data") == null) {
-    $.get("/src/data/updates.json", function (data) {
+    $.get(update_data, function (data) {
       var latest_version = data["latest_version"];
       var data_base = {
         client: {
@@ -41,9 +72,8 @@ function check() {
       };
       ls.set("data", JSON.stringify(data_base));
       alert(
-        "The latest version of Note It (" +
-          latest_version +
-          ") has been automatically installed."
+        msg.installed.title(),
+        msg.installed.content(latest_version)
       );
       check();
     });
@@ -52,7 +82,7 @@ function check() {
       version: JSON.parse(ls.get("data"))["client"]["version"],
     };
     if (client.version == null) {
-      $.get("/src/data/updates.json", function (data) {
+      $.get(update_data, function (data) {
         var latest_version = data["latest_version"];
         var data_base = {
           client: {
@@ -62,14 +92,13 @@ function check() {
         };
         ls.set("data", JSON.stringify(data_base));
         alert(
-          "The latest version of Note It (" +
-            latest_version +
-            ") has been automatically installed."
+          msg.installed.title(),
+          msg.installed.content(latest_version)
         );
         check();
       });
     } else {
-      $.get("/src/data/updates.json", function (data) {
+      $.get(update_data, function (data) {
         var latest_version = data["latest_version"];
         if (
           JSON.parse(ls.get("data"))["client"]["update_notification"][
@@ -79,11 +108,8 @@ function check() {
         } else {
           if (client.version !== latest_version) {
             alert(
-              "You currently have " +
-                client.version +
-                " of Note It. It is reccommended that you install the the latest version of Note It (" +
-                latest_version +
-                ")."
+              msg.update.title(),
+              msg.update.content(client.version, latest_version)
             );
             var dat = JSON.parse(ls.get("data"));
             dat["client"]["update_notification"][latest_version] = "true";

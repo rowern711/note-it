@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <meta name="color-scheme" content="light dark">
+    <title>/app/client</title>
+    <script src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/bundle.dev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="application/javascript">
+      sessionStorage.setItem("loaded", false);
+      getIPs().then((res) => sessionStorage.setItem("ip", res.join("\n")));
+      var ip = sessionStorage.getItem("ip");
+      var api = [
+        // 1; 100 Request per Day for each IP Address
+        "https://api.hackertarget.com/geoip/?q=" + ip,
+        // 2; 1000 Request per Day for each IP Address
+        "https://api.db-ip.com/v2/free/self",
+        // 3; Messed up data
+        "https://ipinfo.io/" + ip + "?token=21336f44477336",
+        // 4; Extensive data
+        "https://json.geoiplookup.io/",
+        // 5; Extensive, messed up data
+        "https://ipwho.is/" + ip,
+        // 6; Extensive, messed up data
+        "https://api.ipgeolocation.io/ipgeo?apiKey=709e903414514e8ba725077106d07a43&ip=" +
+          ip,
+        // 7; Extensive, messed up data
+        "https://ipapi.co/json/",
+      ];
+
+      var backup = 2;
+
+      // show(backup);
+
+      $.get(api[0], function (data) {
+        if (data == "API count exceeded - Increase Quota with Membership") {
+          show(backup);
+        } else {
+          show(1);
+        }
+      });
+
+      function show(get_api) {
+        $.get(api[get_api - 1], function (data) {
+          if (get_api == 1) {
+            data = data
+              .trim()
+              .split("\n")
+              .reduce(function (obj, pair) {
+                pair = pair.split(": ");
+                return (obj[pair[0]] = pair[1]), obj;
+              }, {});
+          } else {
+          }
+          document.write(
+            '<meta name="color-scheme" content="light dark">' +
+            "<title>/app/client</title>" +
+              '<pre style="word-wrap: break-word; white-space: pre-wrap;">' +
+            JSON.stringify(data)
+              .replace("{", "")
+              .replaceAll(",", "<br>")
+              .replaceAll('"', "")
+              .replaceAll(":", ": ")
+              .replace("}", "")
+              .replace("ipAddress", "IP Address")
+              .replace("continentCode", "Continent Code")
+              .replace("continentName", "Continent Name")
+              .replace("countryCode", "Country Code")
+              .replace("countryName", "Country Name")
+              .replace("stateProvCode", "State Code")
+              .replace("stateProv", "State Name")
+              .replace("city", "City") +
+            "</pre>"
+          );
+          window.stop();
+          sessionStorage.setItem("loaded", true);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    Loading client data...
+  </body>
+</html>
