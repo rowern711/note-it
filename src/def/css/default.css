@@ -55,3 +55,36 @@ All rights reserved.
     transform: rotate(360deg);
   }
 }
+#cnt-warning {
+    z-index: 15;
+}
+.noscript-regular,
+.warn-not_compatible {
+  color: var(--main-text-color);
+  background: var(--secondary-background-color);
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  padding: 2vw;
+  z-index: 15;
+  font-size: 7vh;
+  font-family: "Fredoka One", sans-serif;
+}
+.btn-continue {
+  padding: 2vh;
+  border-radius: 10vh;
+  border: 0.3vh solid var(--main-border-color);
+  font-size: 3.4vh;
+  margin: 3vh;
+  background: var(--secondary-background-color);
+}
+.btn-continue:hover {
+  background: var(--main-background-color);
+  color: var(--secondary-text-color);
+}
+.warn-not_compatible {
+  display: none;
+}

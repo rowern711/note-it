@@ -21,7 +21,6 @@ var $, ss, ls, move, loc, $class, append, prepend, element, txt, atr, getRandom;
 $ = scythe.pkg.query;
 $class = scythe.pkg.classList;
 
-
 $("#btn-continue-browser").onclick = function () {
   $class.add($("#warn-not_compatible_browser"), "page-out");
   setTimeout(function () {
@@ -35,6 +34,19 @@ $("#btn-continue-iframe").onclick = function () {
   }, 1000);
 };
 
-setTimeout(function() {$("#loadingScreen").remove()}, 1000)
+var start_blur = 40;
+var interval_blur = 10;
+var delay_blur = 1000;
+for (let i = 0; i <= start_blur; i++) {
+  setTimeout(function () {
+    $("body").style.filter = "blur(" + Number(start_blur - i) + "px)";
+  }, interval_blur * i);
+}
+setTimeout(function () {
+  $("body").removeAttribute("style");
+}, interval_blur * start_blur);
 
-alert('/src/v25.0.0/js/misc.js')
+$("#loadingScreen").style.display = "none";
+setTimeout(function () {
+  $("#loadingScreen").remove();
+}, delay_blur);

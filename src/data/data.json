@@ -1,0 +1,39 @@
+{
+  "assets": {
+    "source": "epicode-assets.glitch.me",
+    "logos": {
+      "retro": {
+        "url": "/assets/Note It Logo Retro.png",
+        "use": "retro"
+      },
+      "square": {
+        "url": "/assets/Note It Logo Square.png",
+        "use": "theme"
+      },
+      "circle": {
+        "url": "/assets/Note It Logo Circle.png",
+        "use": "main"
+      }
+    },
+    "vicons": {
+      "v25.0.0": {
+        "v1": {
+          "url": "/assets/v25 Icon v1.png",
+          "use": "none"
+        },
+        "v2": {
+          "url": "/assets/v25 Icon v2.png",
+          "use": "theme"
+        },
+        "v3": {
+          "url": "/assets/v25 Icon v3.png",
+          "use": "main"
+        },
+        "v3.5": {
+          "url": "/assets/v25 Icon v3.5.png",
+          "use": "small"
+        }
+      }
+    }
+  }
+}

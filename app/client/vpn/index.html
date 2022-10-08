@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <meta name="color-scheme" content="light dark" />
+    <title>/app/client/vpn</title>
+    <script src="https://cdn.jsdelivr.net/gh/joeymalvinni/webrtc-ip/dist/bundle.dev.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="application/javascript">
+      sessionStorage.setItem("loaded", false);
+
+      getIPs().then((res) => sessionStorage.setItem("ip", res.join("\n")));
+      var ip = sessionStorage.getItem("ip");
+
+      var api = [
+        "http://ip-api.com/json/?fields=131072",
+        "https://vpn.geoiplookup.io/" + ip,
+      ];
+
+      show(2);
+
+      function show(get_api) {
+        $.get(api[get_api - 1], function (data) {
+          document.write(
+            '<meta name="color-scheme" content="light dark">' +
+            "<title>/app/client/vpn</title>" +
+              '<pre style="word-wrap: break-word; white-space: pre-wrap;">' +
+              "VPN: " +
+              data.badip +
+              "</pre>"
+          );
+
+          window.stop();
+          sessionStorage.setItem("loaded", true);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    Loading client data...
+  </body>
+</html>

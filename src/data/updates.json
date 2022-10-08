@@ -1,11 +1,23 @@
 {
   "latest_version": "v25.0.0",
   "v25.0.0": {
+    "status": "development",
     "date_released": "n/a",
-    "stylesheets": ["/src/v25.0.0/css/light.css", "/src/v25.0.0/css/base.css"],
+    "available_updates": "all",
+    "stylesheets": [
+      ["/src/v25.0.0/css/light.css"],
+      ["/src/v25.0.0/css/base.css"]
+    ],
     "scripts": [
       ["/src/v25.0.0/js/create/pages.js", "module", "defer"],
       ["/src/v25.0.0/js/misc.js", "module", "defer"]
     ]
+  },
+  "v25.0.1": {
+    "status": "n/a",
+    "date_released": "n/a",
+    "available_updates": "n/a",
+    "stylesheets": "n/a",
+    "scripts": "n/a"
   }
 }
